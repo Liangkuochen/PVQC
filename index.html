@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PVQC 計算機概論英文練習系統">
+  <title>PVQC 計算機概論英文練習</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">💻 PVQC English</div>
+      <div id="progressText">準備開始</div>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen active">
+        <div class="hero">
+          <div class="hero-icon">💻</div>
+          <h1>PVQC 計算機概論<br>英文練習系統</h1>
+          <p>用遊戲方式練習計算機概論英文單字</p>
+        </div>
+        <div class="card start-card">
+          <label for="studentName">姓名／座號（選填）</label>
+          <input id="studentName" type="text" placeholder="例如：01 王小明">
+          <label for="wordCount">本次單字範圍</label>
+          <select id="wordCount">
+            <option value="20">20 個單字</option>
+            <option value="30">30 個單字</option>
+            <option value="40" selected>40 個單字</option>
+            <option value="60">60 個單字</option>
+          </select>
+          <button class="primary big" onclick="startSystem()">開始練習 🚀</button>
+        </div>
+        <div class="feature-grid">
+          <div>🟦<b>關卡一</b><span>英文 → 中文</span></div>
+          <div>🟩<b>關卡二</b><span>中文 → 英文</span></div>
+          <div>🟨<b>關卡三</b><span>英文 → 詞性</span></div>
+          <div>🟪<b>關卡四</b><span>聽發音 → 英文</span></div>
+        </div>
+      </section>
+
+      <section id="levelScreen" class="screen">
+        <div class="level-title">
+          <span id="levelBadge"></span>
+          <h2 id="levelTitle"></h2>
+          <p id="levelDescription"></p>
+        </div>
+        <div class="quiz-card">
+          <div class="question-count" id="questionCount"></div>
+          <div class="question" id="question"></div>
+          <button id="speakBtn" class="speak" onclick="speakCurrent()" hidden>🔊 播放發音</button>
+          <div id="options" class="options"></div>
+          <div id="feedback" class="feedback"></div>
+          <button id="nextBtn" class="primary next" onclick="nextQuestion()" hidden>下一題 ➜</button>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen">
+        <div class="result-card">
+          <div class="result-icon">🏆</div>
+          <h2 id="resultTitle">本關完成！</h2>
+          <div class="score" id="resultScore"></div>
+          <p id="resultMessage"></p>
+          <div class="result-stats">
+            <div><b id="correctCount">0</b><span>答對</span></div>
+            <div><b id="wrongCount">0</b><span>答錯</span></div>
+            <div><b id="percent">0%</b><span>正確率</span></div>
+          </div>
+          <div id="wrongList" class="wrong-list"></div>
+          <div class="result-actions">
+            <button id="nextLevelBtn" class="primary" onclick="goNextLevel()">下一關 ➜</button>
+            <button class="secondary" onclick="restartLevel()">本關再玩一次</button>
+            <button class="secondary" onclick="backHome()">回首頁</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>PVQC 計算機概論英文練習系統 · GitHub Pages Ready</footer>
+  </div>
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
